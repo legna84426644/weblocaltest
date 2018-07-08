@@ -13,8 +13,8 @@ Force Tags    vsee.com
 *** Test Cases ***
 Create Account
     [Tags]    sign-up
-    ${email_1}    Set Variable    robin+test200@vsee.com
-    ${password_1}    Set Variable    test1234
+    ${email_1}    Set Variable    robin+test301@vsee.com
+    ${password_1}    Set Variable    wh@td0umean
     Sign Up For An Account    ${email_1}    ${password_1}
 
 *** Keywords ***
@@ -26,4 +26,6 @@ Sign Up For An Account
     Input Text    css=input[name=signup-email]    ${email}
     Click Element    css=button.btn.btn-color
     Wait Until Element Is Visible    css=p.signup-success strong
-    Element Text Should Be	  css=p.signup-success strong    An activation email is on its way to your inbox
+    #Element Text Should Be	  css=p.signup-success strong    An activation email is on its way to your inbox
+    sleep    5s
+    ${activate_url}    Get Signup Activation Url From Email    ${email}    ${password}

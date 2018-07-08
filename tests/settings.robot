@@ -1,4 +1,5 @@
 *** Settings ***
+Library    ../library/testlib.py
 Library    SeleniumLibrary    run_on_failure=${SEL_RUN_ON_FAILURE}
 Resource    variables.robot
 Resource    steps.robot
