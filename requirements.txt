@@ -1,4 +1,4 @@
 requests
-robotframework==3.0.2
-robotframework-seleniumlibrary==3.0.1
-selenium==3.9.0
+robotframework
+robotframework-seleniumlibrary
+selenium
