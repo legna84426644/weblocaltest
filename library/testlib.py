@@ -1,6 +1,8 @@
 import imaplib
 import email
 import re
+import requests
+from robot.api import logger
 
 gmailIMAP = "imap.gmail.com"
 yahooIMAP = "imap.mail.yahoo.com"
@@ -28,6 +30,15 @@ def delete_all_email(email_address, password):
     mail.expunge()
     mail.close()
     mail.logout()
+
+def deleteUserHTTP(vsee_id):
+    response = requests.delete('http://qa.microsvc.apps.vsee.com/api/user/' + vsee_id)
+    if re.search("\"success\":true", response.text):
+        logger.info('Delete user {} successfully'.format(vsee_id), also_console=True)
+    else:
+        logger.info(
+            'Failed to delete user {}:\n'
+            '[{response.status_code}] {response.text}'.format(vsee_id, response=response),also_console=True)
 
 def get_signup_activation_url_from_email(email_address, password):
     if '@yahoo.com' in email_address:
