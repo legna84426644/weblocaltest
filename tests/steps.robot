@@ -5,7 +5,7 @@ Resource          variables.robot
 *** Keywords ***
 My Suite Setup
     Create Driver
-    # delete user
+    Delete All Email    ${ORGINAL_EMAIL}    ${PASSWORD}
 
 My Suite Teardown
     Run Keyword And Ignore Error    Delete All Cookies

@@ -1,17 +1,25 @@
 import imaplib
 import email
 import re
-import requests
+import random
+
 from robot.api import logger
 
 gmailIMAP = "imap.gmail.com"
 yahooIMAP = "imap.mail.yahoo.com"
 
-gmail_mailboxes = ["INBOX", "Junk E-mail", "[Gmail]/Spam"]
+gmail_mailboxes = ["INBOX", "[Gmail]/Spam"]
 yahoo_mailboxes = ["Inbox", "Bulk Mail"]
 
-test_user_1 = "thanhtestmail01@gmail.com"
+test_user = "thanhtestmail01@gmail.com"
 test_user_pw = "Test1234@"
+
+def random_psuedo_email_address(email_address):
+    name, email = email_address.split('@')
+    num = random.randint(0, 999999999)
+    psuedo_email = name + '+' +str(num) + '@' + email
+    logger.info("Random email " + psuedo_email)
+    return psuedo_email
 
 def delete_all_email(email_address, password):
     if '@yahoo.com' in email_address:
@@ -65,6 +73,7 @@ def get_signup_activation_url_from_email(email_address, password):
             mail.close()
             mail.logout()
             return ss[0]
-    mail.close()
-    mail.logout()
-    return None
+        else:
+            raise Exception('No email found')
+
+#get_signup_activation_url_from_email(test_user, test_user_pw)
