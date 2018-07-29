@@ -24,21 +24,12 @@ def delete_all_email(email_address, password):
     mail.login(email_address, password)
     for mailbox in mailboxes:
         mail.select(mailbox)
-    typ, data = mail.search(None, 'ALL')
-    for num in data[0].split():
-        mail.store(num, '+FLAGS', '\\Deleted)')
-    mail.expunge()
+        typ, data = mail.search(None, 'ALL')
+        for num in data[0].split():
+            mail.store(num, '+FLAGS', '\\Deleted')
+        mail.expunge()
     mail.close()
     mail.logout()
-
-def deleteUserHTTP(vsee_id):
-    response = requests.delete('http://qa.microsvc.apps.vsee.com/api/user/' + vsee_id)
-    if re.search("\"success\":true", response.text):
-        logger.info('Delete user {} successfully'.format(vsee_id), also_console=True)
-    else:
-        logger.info(
-            'Failed to delete user {}:\n'
-            '[{response.status_code}] {response.text}'.format(vsee_id, response=response),also_console=True)
 
 def get_signup_activation_url_from_email(email_address, password):
     if '@yahoo.com' in email_address:
