@@ -20,7 +20,7 @@ Create Account
 
 *** Keywords ***
 Sign Up For An Account
-    ${sign_up_email}    Random Psuedo Email Address    ${ORGINAL_EMAIL}
+    ${sign_up_email}    Random Psuedo Email Address    ${ORIGINAL_EMAIL}
     Go To    ${HOST}
     Click Element    css=a.btn.btn-color
     Wait Until Element Is Visible    css=input[name=signup-email]

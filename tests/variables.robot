@@ -17,5 +17,5 @@ ${BROWSER_SIZE_MOBILE_LARGE}    window-size\=425,882
 ${BROWSER_SIZE_TABLET}    window-size\=1176,768
 ${BROWSER_SIZE_DESKTOP}    window-size\=1600,900
 ${TIMEOUT_SECONDS}    30 s
-${ORGINAL_EMAIL}    thanhtestmail01@gmail.com
+${ORIGINAL_EMAIL}    thanhtestmail01@gmail.com
 ${PASSWORD}    Test1234@
