@@ -65,4 +65,4 @@ cd ${SCRIPT_DIR}/reports
 ${PYTHON_CALLABLE} -m robot ${ROBOT_ARGS} ../tests/
 
 # format the results
-${PYTHON_CALLABLE} -m robot.rebot output.xml
+# ${PYTHON_CALLABLE} -m robot.rebot output.xml
