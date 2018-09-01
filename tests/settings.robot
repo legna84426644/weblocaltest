@@ -12,6 +12,7 @@ ${DRIVER_TYPE}    chrome
 ${DEFAULT_BS_USER}    None
 ${DEFAULT_BS_KEY}    None
 ${HOST}           https://vsee.com/
+${RESET_PWD_URL}    https://my.vsee.com/account/passwordreset
 ${SEL_RUN_ON_FAILURE}    Capture Page Screenshot
 
 *** Keywords ***
