@@ -18,6 +18,7 @@ Create Account
     [Tags]    sign-up
     Sign Up For An Account
     Get Activation Url From Email And Complete Signup Form
+    Download Page Should Be Loaded
 
 Reset Password
     [Tags]    reset-pwd
@@ -45,7 +46,6 @@ Get Activation Url From Email And Complete Signup Form
     Input Text    css=input#password_confirmation    ${PASSWORD}
     Checkbox Should Be Selected    css=input[name="consenttocontact"]
     Click Element    css=input.btn
-    Download Page Should Be Loaded
 
 Download Page Should Be Loaded
     Wait Until Keyword Succeeds    ${TIMEOUT_SECONDS}    5 sec    Location Should Be    https://my.vsee.com/download?signupsuccess=1
