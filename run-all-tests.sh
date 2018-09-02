@@ -59,10 +59,10 @@ done
 
 # run the tests
 # run within the reports dir as robot will log to current dir by default
-cd ${SCRIPT_DIR}/reports
+# cd ${SCRIPT_DIR}/reports
 
 # run all tests
-${PYTHON_CALLABLE} -m robot ${ROBOT_ARGS} ../tests/
+${PYTHON_CALLABLE} -m robot --outputdir reports ${ROBOT_ARGS} ./tests/
 
 # format the results
 # ${PYTHON_CALLABLE} -m robot.rebot output.xml

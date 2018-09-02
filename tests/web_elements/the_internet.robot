@@ -94,16 +94,26 @@ Dynamic Controls
     Element Should Contain    css=p#message    It's back!
 
 Dynamic Loading
-    [Documentation]
+#    [Documentation]
+#    Click Element    xpath=//a[text()="Dynamic Loading"]
+#    Wait Until Element Contains    css=div.example h3    Dynamically Loaded Page Elements
+#    Click Link    Example 1: Element on page that is hidden
+#
 
 Exit Intent
     [Documentation]    Mouse out of the viewport pane and see a modal window appear
 
 File Download
-    [Documentation]    Download a file and check the filed is downloaded
+#    [Documentation]    Download a file and check the filed is downloaded
+#    Click Element    xpath=//a[text()="File Download"]
+#    Wait Until Element Contains    css=div.example h3    File Downloader
+#
 
 File Upload
     [Documentation]    Upload a file and check the filed is uploaded
+    Click Element    xpath=//a[text()="File Upload"]
+    Wait Until Element Contains    css=div.example h3    File Uploader
+    Choose File    css=input#file-upload
 
 Floating Menu
     [Documentation]    ???
