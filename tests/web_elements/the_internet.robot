@@ -57,12 +57,41 @@ Drag and Drop
 
 Dropdown
     [Documentation]    Select options in dropdown
+    Click Element    xpath=//a[text()="Dropdown"]
+    Wait Until Element Contains    css=div.example h3    Dropdown List
+    Selected List Label Should Be    css=select#dropdown    Please select an option
+    Select From List By Label    css=select#dropdown    Option 1
+    Selected List Label Should Be    css=select#dropdown    Option 1
+    Select From List By Label    css=select#dropdown    Option 2
+    Selected List Label Should Be    css=select#dropdown    Option 2
 
 Dynamic Content
     [Documentation]    Get text of each element when the text change each page refresh
+    Click Element    xpath=//a[text()="Dynamic Content"]
+    Wait Until Element Contains    css=div.example h3    Dynamic Content
+    ${before_text_1}    Get Text    css=div#content > div.row:nth-of-type(1) > div.large-10
+    ${before_text_2}    Get Text    css=div#content > div.row:nth-of-type(2) > div.large-10
+    ${before_text_3}    Get Text    css=div#content > div.row:nth-of-type(3) > div.large-10
+    Reload Page
+    ${after_text_1}    Get Text    css=div#content > div.row:nth-of-type(1) > div.large-10
+    ${after_text_2}    Get Text    css=div#content > div.row:nth-of-type(2) > div.large-10
+    ${after_text_3}    Get Text    css=div#content > div.row:nth-of-type(3) > div.large-10
+    Should Not Be Equal    ${before_text_1}    ${after_text_1}
+    Should Not Be Equal    ${before_text_2}    ${after_text_2}
+    Should Not Be Equal    ${before_text_3}    ${after_text_3}
 
 Dynamic Controls
+    [Tags]    zzz
     [Documentation]    Click Remove/Add button and check the checkbox is removed/added after that
+    Click Element    xpath=//a[text()="Dynamic Controls"]
+    Wait Until Element Contains    css=div.example h4    Dynamic Controls
+    Element Should Be Visible    css=div#checkbox
+    Click Element    css=button#btn
+    Wait Until Element Is Not Visible    css=div#checkbox
+    Element Should Contain    css=p#message    It's gone!
+    Click Element    css=button#btn
+    Wait Until Element Is Visible    css=div#checkbox
+    Element Should Contain    css=p#message    It's back!
 
 Dynamic Loading
     [Documentation]
@@ -144,3 +173,7 @@ Typos
 WYSIWYG Editor
 
 *** Keywords ***
+Selected List Label Should Be
+    [Arguments]    ${element_locator}    ${expected_value}
+    ${current_value}    Get Selected List Label    ${element_locator}
+    Should Be Equal    ${current_value}    ${expected_value}
