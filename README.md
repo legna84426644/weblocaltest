@@ -1,7 +1,7 @@
 # An Example of web testing with Robot Framework and SeleniumLibrary
 Robot Framework is a generic open source test automation framework and SeleniumLibrary is one of the many test libraries that can be used with it. In addition to showing how they can be used together for web testing, this demo introduces the basic Robot Framework test data syntax, how tests are executed, and how logs and reports look like.
 
-Some highlight from this example:
+**Some highlight from this example:**
 - Can run on latest Chrome, Firefox, IE, Chrome headless, Firefox headless
 - Include all kind of web elements and actions: buttons, input fields, checkboxes, menus, frames, windows, alerts, radio buttons, dropdown lists, ,javascript,...
 - Use CSS selectors and XPath as locators
@@ -17,9 +17,15 @@ the_internet.robot
 
     A test suite for interacting with most of web elements on https://the-internet.herokuapp.com
 **Generated Results**
+
 After running tests you will get report and log in HTML format. Example files are also visible online in case you are not interested in running the demo yourself:
 
 - report.html
 - log.html
 
 **Run Test**
+
+Currently this example only work with Python 2.7. Python 3 or higher is not tested yet.
+In order to run the test, just simply invoke the scrip
+    
+    $ sh run-all-tests.sh
