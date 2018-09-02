@@ -18,6 +18,14 @@ My VSee Test Setup
 My VSee Test Teardown
     Run Keyword If Test Failed    Restart Browser
 
+Switch Browser And Go To Example Site
+    ${passed} =     Run Keyword And Return Status    Switch Browser    1
+    Run Keyword If    not ${passed}    Restart Browser
+    Go To    ${EXAMPLE_SITE}
+
+Restart Browser If Failed
+    Run Keyword If Test Failed    Restart Browser
+
 Restart Browser
     [Documentation]    Close current browser and open new browser
     Run Keyword And Ignore Error    Delete All Cookies
