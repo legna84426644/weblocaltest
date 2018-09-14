@@ -3,9 +3,11 @@
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 
 if [ -z ${YC_PY_VER} ]; then
-    YC_PY_VER="2.7"
+    #YC_PY_VER="2.7"
+    YC_PY_VER="2"
 fi
-PYTHON_CALLABLE="python${YC_PY_VER}"
+
+PYTHON_CALLABLE="py -${YC_PY_VER}"
 
 ROBOT_ARGS=""
 

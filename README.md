@@ -23,9 +23,29 @@ After running tests you will get report and log in HTML format. Example files ar
 - report.html
 - log.html
 
+**Requirements**
+
+Need to install some modules: 
+requests
+robotframework
+robotframework-seleniumlibrary
+selenium
+
+py -2 -m pip install robotframework-seleniumlibrary
+
 **Run Test**
 
 Currently this example only work with Python 2.7. Python 3 or higher is not tested yet.
 In order to run the test, just simply invoke the scrip
     
     $ sh run-all-tests.sh
+    
+Run one suite
+
+Run with different browser
+
+run with random test case
+
+run with a specific test
+
+run a specific test tag    
